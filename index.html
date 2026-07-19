@@ -30,7 +30,10 @@
       background: var(--paper);
       color: var(--ink);
       line-height: 1.65;
+      overflow-x: hidden;
     }
+
+    img, video { max-width: 100%; }
 
     h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; }
 
@@ -236,7 +239,7 @@
       font-weight: 500;
     }
 
-    .hero-grid .frame { min-height: 380px; }
+    .hero-grid .frame { min-height: 0; }
 
     .frame.video-frame {
       min-height: 0;
@@ -484,7 +487,7 @@
     /* ---------- responsive ---------- */
     @media (max-width: 860px) {
       .hero-grid { grid-template-columns: 1fr; }
-      .hero-grid .frame { min-height: 300px; }
+      .hero-grid .frame { min-height: 0; }
       .gallery { grid-template-columns: 1fr 1fr; }
       .gallery .frame.wide { grid-column: span 2; }
       .contact { grid-template-columns: 1fr; }
