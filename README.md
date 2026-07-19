@@ -19,7 +19,3 @@ Faqja ka hapësira të gatshme (placeholder) për foto dhe video. Për t'i zëve
 
 - Instagram: [@punime_elektr1ke](https://www.instagram.com/punime_elektr1ke)
 - TikTok: [@punime_elektr1ke](https://www.tiktok.com/@punime_elektr1ke)
-
-## Për t'u përditësuar
-
-- Numri i telefonit dhe WhatsApp te seksioni "Kontakt" (`tel:+355000000000` dhe `wa.me/355000000000`)
