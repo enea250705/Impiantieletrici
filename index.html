@@ -3,23 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Punime Elektrike — Instalime & Riparime Profesionale</title>
-  <meta name="description" content="Punime elektrike profesionale: instalime, riparime, ndriçim LED, kuadro elektrike dhe më shumë. Cilësi dhe siguri e garantuar.">
+  <title>Punime Elektrike — Instalime elektrike profesionale</title>
+  <meta name="description" content="Instalime elektrike profesionale të ndryshme për shtëpi dhe biznese. Punë e sigurt, e pastër dhe e garantuar.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b1020;
-      --bg-soft: #101731;
-      --card: #151d3b;
-      --card-2: #1a2347;
-      --amber: #ffb52e;
-      --amber-soft: rgba(255, 181, 46, 0.12);
-      --text: #eef1fb;
-      --muted: #9aa3c7;
-      --line: rgba(255, 255, 255, 0.08);
-      --radius: 18px;
+      --paper: #f4f1ea;
+      --ink: #1a1814;
+      --ink-soft: #55504a;
+      --accent: #f2b705;
+      --line: #1a1814;
+      --frame-bg: #ebe7de;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,735 +24,676 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
     }
 
-    h1, h2, h3 { font-family: 'Sora', sans-serif; }
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; }
 
-    .container { width: min(1140px, 92%); margin: 0 auto; }
+    .mono {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-    /* ===== Header ===== */
+    .wrap { width: min(1080px, 92%); margin: 0 auto; }
+
+    a { color: inherit; }
+
+    /* ---------- header ---------- */
     header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(11, 16, 32, 0.85);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--paper);
+      border-bottom: 2px solid var(--line);
     }
 
-    .nav {
+    .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 0;
+      gap: 16px;
+      padding: 18px 0;
     }
 
-    .logo {
+    .brand {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: 'Sora', sans-serif;
-      font-weight: 800;
-      font-size: 1.15rem;
-      color: var(--text);
       text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
     }
 
-    .logo .bolt {
-      display: grid;
-      place-items: center;
-      width: 38px; height: 38px;
-      background: linear-gradient(135deg, var(--amber), #ff8c1a);
-      border-radius: 10px;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 18px rgba(255, 181, 46, 0.35);
+    .brand .sq {
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border: 2px solid var(--line);
+      display: inline-block;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
+    nav { display: flex; align-items: center; gap: 26px; }
 
-    .nav-links a {
-      color: var(--muted);
+    nav a {
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 500;
-      transition: color 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
     }
 
-    .nav-links a:hover { color: var(--amber); }
+    nav a:hover { border-bottom-color: var(--accent); }
 
-    .nav-cta {
-      background: linear-gradient(135deg, var(--amber), #ff8c1a);
-      color: #1a1205 !important;
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-weight: 600 !important;
-      box-shadow: 0 4px 18px rgba(255, 181, 46, 0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
+    nav a.cta {
+      border: 2px solid var(--line);
+      background: var(--accent);
+      padding: 8px 18px;
+      font-weight: 600;
+      box-shadow: 3px 3px 0 var(--line);
+      transition: box-shadow 0.12s, transform 0.12s;
     }
 
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 181, 46, 0.45); }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.6rem;
-      cursor: pointer;
+    nav a.cta:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--line);
+      border-bottom-color: var(--line);
     }
 
-    /* ===== Hero ===== */
-    .hero {
-      position: relative;
-      padding: 170px 0 110px;
-      background:
-        radial-gradient(700px 400px at 85% 10%, rgba(255, 181, 46, 0.14), transparent 60%),
-        radial-gradient(600px 400px at 10% 90%, rgba(70, 110, 255, 0.16), transparent 60%),
-        var(--bg);
-    }
+    /* ---------- hero ---------- */
+    .hero { padding: 72px 0 64px; }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 56px;
-      align-items: center;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: start;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--amber-soft);
-      color: var(--amber);
-      border: 1px solid rgba(255, 181, 46, 0.3);
-      padding: 7px 16px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 22px;
+    .kicker {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 4px 10px;
+      border: 2px solid var(--line);
+      background: #fff;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 20px;
+      font-size: clamp(2.1rem, 5.2vw, 3.3rem);
+      font-weight: 700;
+      margin-bottom: 22px;
     }
 
-    .hero h1 span {
-      background: linear-gradient(135deg, var(--amber), #ff8c1a);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .hero h1 mark {
+      background: linear-gradient(transparent 62%, var(--accent) 62%);
+      color: inherit;
     }
 
-    .hero p {
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 520px;
-      margin-bottom: 34px;
+    .hero .lead {
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin-bottom: 30px;
     }
 
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
 
     .btn {
-      display: inline-flex;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 13px 26px;
+      border: 2px solid var(--line);
+      box-shadow: 4px 4px 0 var(--line);
+      transition: box-shadow 0.12s, transform 0.12s;
+    }
+
+    .btn:hover { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--line); }
+
+    .btn.solid { background: var(--ink); color: var(--paper); }
+
+    .btn.yellow { background: var(--accent); color: var(--ink); }
+
+    .btn.plain { background: #fff; }
+
+    .hero-facts {
+      margin-top: 42px;
+      display: flex;
+      border: 2px solid var(--line);
+      background: #fff;
+      max-width: 480px;
+    }
+
+    .hero-facts div {
+      flex: 1;
+      padding: 14px 16px;
+      border-right: 2px solid var(--line);
+    }
+
+    .hero-facts div:last-child { border-right: 0; }
+
+    .hero-facts strong {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+    }
+
+    .hero-facts span { font-size: 0.8rem; color: var(--ink-soft); }
+
+    /* ---------- media frames (placeholders per foto/video) ---------- */
+    .frame {
+      border: 2px solid var(--line);
+      background: var(--frame-bg);
+      box-shadow: 5px 5px 0 var(--line);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .frame .canvas {
+      flex: 1;
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+      background:
+        repeating-linear-gradient(45deg,
+          transparent 0 14px,
+          rgba(26, 24, 20, 0.05) 14px 28px);
+      position: relative;
+    }
+
+    .frame .canvas svg { width: 44px; height: 44px; stroke: var(--ink-soft); }
+
+    .frame .caption {
+      border-top: 2px solid var(--line);
+      background: #fff;
+      padding: 9px 14px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
       gap: 10px;
-      padding: 14px 28px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--amber), #ff8c1a);
-      color: #1a1205;
-      box-shadow: 0 6px 24px rgba(255, 181, 46, 0.35);
-    }
-
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(255, 181, 46, 0.5); }
-
-    .btn-ghost {
+    .frame .caption .tag {
+      background: var(--accent);
       border: 1px solid var(--line);
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.03);
+      padding: 1px 8px;
+      font-weight: 500;
     }
 
-    .btn-ghost:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-3px); }
+    .hero-grid .frame { min-height: 380px; }
 
-    .hero-stats {
-      display: flex;
-      gap: 36px;
-      margin-top: 48px;
-      flex-wrap: wrap;
-    }
-
-    .stat h3 {
-      font-size: 1.9rem;
-      color: var(--amber);
-      font-weight: 800;
-    }
-
-    .stat p { font-size: 0.88rem; color: var(--muted); margin: 0; }
-
-    /* Media placeholder (hero) */
-    .media-placeholder {
-      position: relative;
-      border-radius: var(--radius);
-      border: 2px dashed rgba(255, 181, 46, 0.35);
-      background: linear-gradient(160deg, var(--card), var(--bg-soft));
-      display: grid;
-      place-items: center;
+    /* ---------- strip ---------- */
+    .strip {
+      border-top: 2px solid var(--line);
+      border-bottom: 2px solid var(--line);
+      background: var(--ink);
+      color: var(--paper);
       overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
+      white-space: nowrap;
+      padding: 12px 0;
     }
 
-    .media-placeholder:hover { border-color: var(--amber); transform: translateY(-4px); }
-
-    .media-placeholder .inner {
-      text-align: center;
-      padding: 24px;
-    }
-
-    .media-placeholder .icon {
-      width: 64px; height: 64px;
-      margin: 0 auto 14px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--amber-soft);
-      color: var(--amber);
-      font-size: 1.6rem;
-    }
-
-    .media-placeholder .label {
-      font-family: 'Sora', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--text);
-    }
-
-    .media-placeholder .sub {
+    .strip span {
+      display: inline-block;
+      padding-right: 48px;
+      font-family: 'IBM Plex Mono', monospace;
       font-size: 0.82rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .hero-media { aspect-ratio: 4 / 3; }
-
-    /* ===== Sections ===== */
-    section { padding: 96px 0; }
-
-    .section-head {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 56px;
-    }
-
-    .section-head .eyebrow {
-      color: var(--amber);
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 12px;
-      display: block;
     }
 
-    .section-head h2 {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 800;
-      margin-bottom: 14px;
+    .strip b { color: var(--accent); font-weight: 400; }
+
+    /* ---------- sections ---------- */
+    section { padding: 76px 0; }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 40px;
     }
 
-    .section-head p { color: var(--muted); }
+    .sec-head .num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
 
-    /* ===== Services ===== */
-    #sherbimet { background: var(--bg-soft); }
+    .sec-head h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 700; }
 
-    .services-grid {
+    /* ---------- sherbimi ---------- */
+    .service {
       display: grid;
-      grid-template-columns: 1fr;
-      max-width: 640px;
-      margin: 0 auto;
-      gap: 22px;
+      grid-template-columns: auto 1fr;
+      gap: 26px;
+      border: 2px solid var(--line);
+      background: #fff;
+      box-shadow: 5px 5px 0 var(--line);
+      padding: 34px;
+      max-width: 720px;
     }
 
-    .service-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 42px 38px;
-      text-align: center;
-      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-    }
-
-    .service-card .icon { margin-left: auto; margin-right: auto; }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(255, 181, 46, 0.4);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-    }
-
-    .service-card .icon {
-      width: 52px; height: 52px;
+    .service .s-icon {
+      width: 62px;
+      height: 62px;
+      border: 2px solid var(--line);
+      background: var(--accent);
       display: grid;
       place-items: center;
-      border-radius: 14px;
-      background: var(--amber-soft);
-      font-size: 1.5rem;
-      margin-bottom: 18px;
+      flex-shrink: 0;
     }
 
-    .service-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .service .s-icon svg { width: 30px; height: 30px; stroke: var(--ink); }
 
-    .service-card p { color: var(--muted); font-size: 0.94rem; }
+    .service h3 { font-size: 1.25rem; margin-bottom: 8px; }
 
-    /* ===== Gallery ===== */
-    .gallery-grid {
+    .service p { color: var(--ink-soft); font-size: 0.97rem; }
+
+    /* ---------- galeria ---------- */
+    .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 26px;
     }
 
-    .gallery-grid .media-placeholder { aspect-ratio: 1 / 1; }
+    .gallery .frame.wide { grid-column: span 2; }
 
-    .gallery-grid .media-placeholder.wide {
-      grid-column: span 2;
-      aspect-ratio: auto;
+    .gallery .frame .canvas { min-height: 240px; }
+
+    .gallery-note {
+      margin-top: 26px;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
     }
 
-    .gallery-grid .media-placeholder.video .icon { font-size: 1.4rem; }
-
-    /* ===== Why us ===== */
-    #pse-ne { background: var(--bg-soft); }
-
-    .why-grid {
+    /* ---------- pse ne ---------- */
+    .why {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 56px;
-      align-items: center;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border: 2px solid var(--line);
+      background: #fff;
+      box-shadow: 5px 5px 0 var(--line);
     }
 
-    .why-media { aspect-ratio: 3 / 4; max-height: 520px; }
-
-    .why-list { list-style: none; display: grid; gap: 22px; }
-
-    .why-list li {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
+    .why article {
+      padding: 28px 30px;
+      border-bottom: 2px solid var(--line);
     }
 
-    .why-list .check {
-      flex-shrink: 0;
-      width: 44px; height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: var(--amber-soft);
-      color: var(--amber);
-      font-size: 1.2rem;
-      font-weight: 700;
+    .why article:nth-child(odd) { border-right: 2px solid var(--line); }
+
+    .why article:nth-last-child(-n+2) { border-bottom: 0; }
+
+    .why .idx {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      display: block;
+      margin-bottom: 10px;
     }
 
-    .why-list h3 { font-size: 1.08rem; margin-bottom: 4px; }
+    .why h3 { font-size: 1.08rem; margin-bottom: 6px; }
 
-    .why-list p { color: var(--muted); font-size: 0.94rem; }
+    .why p { color: var(--ink-soft); font-size: 0.93rem; }
 
-    /* ===== Social ===== */
-    .social-grid {
+    /* ---------- rrjetet ---------- */
+    .socials {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      max-width: 820px;
-      margin: 0 auto;
+      gap: 26px;
+      max-width: 760px;
     }
 
-    .social-card {
+    .social {
       display: flex;
       align-items: center;
-      gap: 20px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
+      gap: 18px;
       text-decoration: none;
-      color: var(--text);
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      border: 2px solid var(--line);
+      background: #fff;
+      box-shadow: 5px 5px 0 var(--line);
+      padding: 22px 24px;
+      transition: box-shadow 0.12s, transform 0.12s;
     }
 
-    .social-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-    }
+    .social:hover { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--line); }
 
-    .social-card.instagram:hover { border-color: #e1306c; }
-    .social-card.tiktok:hover { border-color: #25f4ee; }
-
-    .social-card .s-icon {
-      flex-shrink: 0;
-      width: 60px; height: 60px;
+    .social .logo-box {
+      width: 52px;
+      height: 52px;
+      border: 2px solid var(--line);
       display: grid;
       place-items: center;
-      border-radius: 16px;
+      flex-shrink: 0;
+      background: var(--accent);
     }
 
-    .social-card.instagram .s-icon {
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    .social .logo-box svg { width: 26px; height: 26px; fill: var(--ink); }
+
+    .social h3 { font-size: 1.05rem; }
+
+    .social .handle { font-size: 0.85rem; color: var(--ink-soft); }
+
+    .social .go { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 1rem; }
+
+    /* ---------- kontakt ---------- */
+    .contact {
+      border: 2px solid var(--line);
+      background: var(--accent);
+      box-shadow: 6px 6px 0 var(--line);
+      padding: 46px 40px;
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      gap: 30px;
+      align-items: center;
     }
 
-    .social-card.tiktok .s-icon { background: #000; border: 1px solid #333; }
+    .contact h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin-bottom: 10px; }
 
-    .social-card .s-icon svg { width: 30px; height: 30px; }
+    .contact p { max-width: 460px; }
 
-    .social-card h3 { font-size: 1.1rem; margin-bottom: 2px; }
+    .contact .btn-row { justify-content: flex-end; }
 
-    .social-card p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+    /* ---------- footer ---------- */
+    footer { border-top: 2px solid var(--line); padding: 30px 0 36px; }
 
-    .social-card .arrow {
-      margin-left: auto;
-      color: var(--amber);
-      font-size: 1.3rem;
-      transition: transform 0.25s;
-    }
-
-    .social-card:hover .arrow { transform: translateX(6px); }
-
-    /* ===== Contact ===== */
-    #kontakt {
-      background:
-        radial-gradient(600px 300px at 50% 0%, rgba(255, 181, 46, 0.1), transparent 70%),
-        var(--bg-soft);
-    }
-
-    .contact-box {
-      max-width: 720px;
-      margin: 0 auto;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 48px 40px;
-      text-align: center;
-    }
-
-    .contact-box h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 12px; }
-
-    .contact-box > p { color: var(--muted); margin-bottom: 32px; }
-
-    .contact-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .contact-note {
-      margin-top: 26px;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 40px 0;
-    }
-
-    .footer-inner {
+    .foot {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
-    .footer-social { display: flex; gap: 14px; }
+    .foot-social { display: flex; gap: 12px; }
 
-    .footer-social a {
-      width: 42px; height: 42px;
+    .foot-social a {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--line);
+      background: #fff;
       display: grid;
       place-items: center;
-      border-radius: 12px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      transition: transform 0.2s, border-color 0.2s;
+      transition: background 0.12s;
     }
 
-    .footer-social a:hover { transform: translateY(-3px); border-color: var(--amber); }
+    .foot-social a:hover { background: var(--accent); }
 
-    .footer-social svg { width: 20px; height: 20px; fill: var(--muted); }
+    .foot-social svg { width: 19px; height: 19px; fill: var(--ink); }
 
-    .footer-social a:hover svg { fill: var(--amber); }
+    .foot small { color: var(--ink-soft); font-size: 0.85rem; }
 
-    footer p { color: var(--muted); font-size: 0.88rem; }
-
-    /* ===== Reveal animation ===== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    /* ---------- responsive ---------- */
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-grid .frame { min-height: 300px; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .gallery .frame.wide { grid-column: span 2; }
+      .contact { grid-template-columns: 1fr; }
+      .contact .btn-row { justify-content: flex-start; }
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 900px) {
-      .hero-grid, .why-grid { grid-template-columns: 1fr; gap: 40px; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-grid .media-placeholder.wide { grid-column: span 2; }
-      .why-media { max-height: none; aspect-ratio: 4 / 3; }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0; right: 0;
-        flex-direction: column;
-        background: rgba(11, 16, 32, 0.97);
-        border-bottom: 1px solid var(--line);
-        padding: 20px 5%;
-        gap: 18px;
-        display: none;
-      }
-
-      .nav-links.open { display: flex; }
-
-      .menu-toggle { display: block; }
-
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-grid .media-placeholder.wide { grid-column: span 1; }
-      .social-grid { grid-template-columns: 1fr; }
-      section { padding: 72px 0; }
-      .hero { padding: 140px 0 80px; }
-      .contact-box { padding: 36px 24px; }
+    @media (max-width: 620px) {
+      nav a:not(.cta) { display: none; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery .frame.wide { grid-column: span 1; }
+      .why { grid-template-columns: 1fr; }
+      .why article:nth-child(odd) { border-right: 0; }
+      .why article:nth-last-child(-n+2) { border-bottom: 2px solid var(--line); }
+      .why article:last-child { border-bottom: 0; }
+      .socials { grid-template-columns: 1fr; }
+      .hero-facts { flex-direction: column; }
+      .hero-facts div { border-right: 0; border-bottom: 2px solid var(--line); }
+      .hero-facts div:last-child { border-bottom: 0; }
+      section { padding: 56px 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
   <header>
-    <div class="container nav">
-      <a href="#" class="logo"><span class="bolt">⚡</span> Punime Elektrike</a>
-      <button class="menu-toggle" aria-label="Hap menunë">☰</button>
-      <ul class="nav-links">
-        <li><a href="#sherbimet">Shërbimet</a></li>
-        <li><a href="#punimet">Punimet Tona</a></li>
-        <li><a href="#pse-ne">Pse Ne</a></li>
-        <li><a href="#rrjetet">Rrjetet Sociale</a></li>
-        <li><a href="#kontakt" class="nav-cta">Na Kontaktoni</a></li>
-      </ul>
+    <div class="wrap topbar">
+      <a class="brand" href="#krye"><span class="sq"></span>PUNIME ELEKTRIKE</a>
+      <nav>
+        <a href="#sherbimi">Shërbimi</a>
+        <a href="#punimet">Punimet</a>
+        <a href="#pse-ne">Pse ne</a>
+        <a href="#rrjetet">Rrjetet</a>
+        <a class="cta" href="#kontakt">Kontakt</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="badge">⚡ Profesionalizëm & Siguri</span>
-        <h1>Punime Elektrike <span>Profesionale</span> për Shtëpinë dhe Biznesin Tuaj</h1>
-        <p>Instalime, riparime dhe mirëmbajtje elektrike me cilësi të lartë. Punë e pastër, e sigurt dhe e garantuar — nga dora e një profesionisti.</p>
-        <div class="hero-actions">
-          <a href="#kontakt" class="btn btn-primary">Kërko Ofertë ⚡</a>
-          <a href="#punimet" class="btn btn-ghost">Shiko Punimet</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><h3>100+</h3><p>Projekte të përfunduara</p></div>
-          <div class="stat"><h3>100%</h3><p>Klientë të kënaqur</p></div>
-          <div class="stat"><h3>24/7</h3><p>Gati për urgjenca</p></div>
-        </div>
-      </div>
-      <div class="media-placeholder hero-media reveal">
-        <div class="inner">
-          <div class="icon">📷</div>
-          <div class="label">Hapësirë për Foto/Video Kryesore</div>
-          <div class="sub">Këtu vendoset fotoja ose videoja kryesore e punimeve</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main id="krye">
 
-  <!-- ===== Services ===== -->
-  <section id="sherbimet">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Shërbimet</span>
-        <h2>Çfarë Ofrojmë</h2>
-        <p>Të specializuar në një gjë dhe e bëjmë atë në mënyrë të përsosur.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="icon">🔌</div>
-          <h3>Instalime Elektrike Profesionale të Ndryshme</h3>
-          <p>Instalime elektrike profesionale të çdo lloji — për shtëpi, apartamente dhe ambiente biznesi, sipas standardeve më të larta të sigurisë.</p>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="kicker mono">Elektricist profesionist</span>
+          <h1>Instalime elektrike <mark>të sigurta</mark>, të pastra dhe të bëra si duhet.</h1>
+          <p class="lead">Merremi me instalime elektrike profesionale të ndryshme — për shtëpi, apartamente dhe biznese. Pa improvizime, pa punë përgjysmë.</p>
+          <div class="btn-row">
+            <a class="btn yellow" href="#kontakt">Kërko ofertë</a>
+            <a class="btn plain" href="#punimet">Shiko punimet</a>
+          </div>
+          <div class="hero-facts">
+            <div><strong>100+</strong><span>projekte</span></div>
+            <div><strong>100%</strong><span>garanci</span></div>
+            <div><strong>24/7</strong><span>urgjenca</span></div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== Gallery (photo/video placeholders) ===== -->
-  <section id="punimet">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Galeria</span>
-        <h2>Punimet Tona</h2>
-        <p>Një pamje nga projektet që kemi realizuar. Fotot dhe videot do të shtohen së shpejti.</p>
-      </div>
-      <div class="gallery-grid">
-        <div class="media-placeholder wide video reveal">
-          <div class="inner">
-            <div class="icon">▶️</div>
-            <div class="label">Hapësirë për Video</div>
-            <div class="sub">Video nga punimet në terren</div>
+        <!-- hapësirë për foton/videon kryesore -->
+        <div class="frame">
+          <div class="canvas">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <rect x="3" y="5" width="18" height="14" rx="1"/>
+              <circle cx="12" cy="12" r="3.5"/>
+              <circle cx="17.5" cy="8.5" r="0.5" fill="currentColor"/>
+            </svg>
           </div>
-        </div>
-        <div class="media-placeholder reveal">
-          <div class="inner">
-            <div class="icon">📷</div>
-            <div class="label">Hapësirë për Foto</div>
-            <div class="sub">Foto e punimit #1</div>
-          </div>
-        </div>
-        <div class="media-placeholder reveal">
-          <div class="inner">
-            <div class="icon">📷</div>
-            <div class="label">Hapësirë për Foto</div>
-            <div class="sub">Foto e punimit #2</div>
-          </div>
-        </div>
-        <div class="media-placeholder reveal">
-          <div class="inner">
-            <div class="icon">📷</div>
-            <div class="label">Hapësirë për Foto</div>
-            <div class="sub">Foto e punimit #3</div>
-          </div>
-        </div>
-        <div class="media-placeholder wide video reveal">
-          <div class="inner">
-            <div class="icon">▶️</div>
-            <div class="label">Hapësirë për Video</div>
-            <div class="sub">Video para / pas punimit</div>
+          <div class="caption">
+            <span class="mono">foto-kryesore.jpg</span>
+            <span class="mono tag">së shpejti</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Why us ===== -->
-  <section id="pse-ne">
-    <div class="container why-grid">
-      <div class="media-placeholder why-media reveal">
-        <div class="inner">
-          <div class="icon">📷</div>
-          <div class="label">Hapësirë për Foto</div>
-          <div class="sub">Foto gjatë punës</div>
-        </div>
-      </div>
-      <div>
-        <div class="section-head reveal" style="text-align: left; margin: 0 0 36px;">
-          <span class="eyebrow">Pse Ne</span>
-          <h2>Cilësi që Flet Vetë</h2>
-        </div>
-        <ul class="why-list">
-          <li class="reveal">
-            <span class="check">✓</span>
-            <div>
-              <h3>Punë e Garantuar</h3>
-              <p>Çdo punim shoqërohet me garanci — qëndrojmë pas cilësisë sonë.</p>
-            </div>
-          </li>
-          <li class="reveal">
-            <span class="check">✓</span>
-            <div>
-              <h3>Siguri Maksimale</h3>
-              <p>Punojmë sipas standardeve të sigurisë, me materiale të certifikuara.</p>
-            </div>
-          </li>
-          <li class="reveal">
-            <span class="check">✓</span>
-            <div>
-              <h3>Çmime Transparente</h3>
-              <p>Ofertë e qartë që në fillim — pa kosto të fshehura, pa surpriza.</p>
-            </div>
-          </li>
-          <li class="reveal">
-            <span class="check">✓</span>
-            <div>
-              <h3>Korrektësi & Pastërti</h3>
-              <p>Respektojmë afatet dhe e lëmë ambientin tuaj të pastër pas çdo punimi.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
+    <div class="strip" aria-hidden="true">
+      <span>Instalime elektrike <b>●</b> Punë e garantuar <b>●</b> Materiale të certifikuara <b>●</b> Instalime elektrike <b>●</b> Punë e garantuar <b>●</b> Materiale të certifikuara <b>●</b> Instalime elektrike <b>●</b> Punë e garantuar <b>●</b></span>
     </div>
-  </section>
 
-  <!-- ===== Social ===== -->
-  <section id="rrjetet">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Rrjetet Sociale</span>
-        <h2>Na Ndiqni</h2>
-        <p>Shikoni punimet tona më të fundit, video nga terreni dhe këshilla praktike.</p>
-      </div>
-      <div class="social-grid">
-        <a href="https://www.instagram.com/punime_elektr1ke?igsh=MTJhMDQxczBianpxbw==" target="_blank" rel="noopener" class="social-card instagram reveal">
-          <span class="s-icon">
-            <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </span>
+    <section id="sherbimi">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="num">01</span>
+          <h2>Shërbimi</h2>
+        </div>
+        <div class="service">
+          <div class="s-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M13 2 5 13.5h5L9.5 22 18 10h-5.5L13 2Z" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <div>
-            <h3>Instagram</h3>
-            <p>@punime_elektr1ke</p>
+            <h3>Instalime elektrike profesionale të ndryshme</h3>
+            <p>Instalime elektrike të çdo lloji — për shtëpi, apartamente dhe ambiente biznesi. Punojmë sipas standardeve të sigurisë, me materiale të certifikuara, dhe e dorëzojmë punën të pastër e të testuar.</p>
           </div>
-          <span class="arrow">→</span>
-        </a>
-        <a href="https://www.tiktok.com/@punime_elektr1ke?_r=1&_t=ZN-989rrkayQDe" target="_blank" rel="noopener" class="social-card tiktok reveal">
-          <span class="s-icon">
-            <svg viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
-          </span>
-          <div>
-            <h3>TikTok</h3>
-            <p>@punime_elektr1ke</p>
-          </div>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Contact ===== -->
-  <section id="kontakt">
-    <div class="container">
-      <div class="contact-box reveal">
-        <h2>Gati për Projektin Tuaj? ⚡</h2>
-        <p>Na kontaktoni sot për një ofertë falas — pa asnjë detyrim. Përgjigjemi shpejt!</p>
-        <div class="contact-actions">
-          <a href="https://www.instagram.com/punime_elektr1ke?igsh=MTJhMDQxczBianpxbw==" target="_blank" rel="noopener" class="btn btn-primary">📩 Na Shkruani në Instagram</a>
-          <a href="https://www.tiktok.com/@punime_elektr1ke?_r=1&_t=ZN-989rrkayQDe" target="_blank" rel="noopener" class="btn btn-ghost">🎵 Na Gjeni në TikTok</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Footer ===== -->
+    <section id="punimet">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="num">02</span>
+          <h2>Punimet tona</h2>
+        </div>
+        <div class="gallery">
+          <!-- hapësira për video/foto — do të zëvendësohen me materialet reale -->
+          <div class="frame wide">
+            <div class="canvas">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <rect x="2.5" y="4.5" width="19" height="15" rx="1"/>
+                <path d="M10 9.2v5.6l4.8-2.8L10 9.2Z" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="caption">
+              <span class="mono">video-01.mp4</span>
+              <span class="mono tag">së shpejti</span>
+            </div>
+          </div>
+          <div class="frame">
+            <div class="canvas">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <rect x="3" y="5" width="18" height="14" rx="1"/>
+                <circle cx="12" cy="12" r="3.5"/>
+              </svg>
+            </div>
+            <div class="caption">
+              <span class="mono">punimi-01.jpg</span>
+              <span class="mono tag">së shpejti</span>
+            </div>
+          </div>
+          <div class="frame">
+            <div class="canvas">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <rect x="3" y="5" width="18" height="14" rx="1"/>
+                <circle cx="12" cy="12" r="3.5"/>
+              </svg>
+            </div>
+            <div class="caption">
+              <span class="mono">punimi-02.jpg</span>
+              <span class="mono tag">së shpejti</span>
+            </div>
+          </div>
+          <div class="frame">
+            <div class="canvas">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <rect x="3" y="5" width="18" height="14" rx="1"/>
+                <circle cx="12" cy="12" r="3.5"/>
+              </svg>
+            </div>
+            <div class="caption">
+              <span class="mono">punimi-03.jpg</span>
+              <span class="mono tag">së shpejti</span>
+            </div>
+          </div>
+          <div class="frame">
+            <div class="canvas">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                <rect x="2.5" y="4.5" width="19" height="15" rx="1"/>
+                <path d="M10 9.2v5.6l4.8-2.8L10 9.2Z" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="caption">
+              <span class="mono">video-02.mp4</span>
+              <span class="mono tag">së shpejti</span>
+            </div>
+          </div>
+        </div>
+        <p class="gallery-note">Fotot dhe videot nga punimet tona do të shtohen së shpejti. Ndërkohë na gjeni në Instagram dhe TikTok.</p>
+      </div>
+    </section>
+
+    <section id="pse-ne">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="num">03</span>
+          <h2>Pse ne</h2>
+        </div>
+        <div class="why">
+          <article>
+            <span class="idx">a.</span>
+            <h3>Punë e garantuar</h3>
+            <p>Çdo punim shoqërohet me garanci. Qëndrojmë pas punës sonë — gjithmonë.</p>
+          </article>
+          <article>
+            <span class="idx">b.</span>
+            <h3>Siguri pa kompromis</h3>
+            <p>Standardet e sigurisë dhe materialet e certifikuara nuk negociohen.</p>
+          </article>
+          <article>
+            <span class="idx">c.</span>
+            <h3>Çmim i qartë që në fillim</h3>
+            <p>Ofertë transparente, pa kosto të fshehura dhe pa surpriza në fund.</p>
+          </article>
+          <article>
+            <span class="idx">d.</span>
+            <h3>Korrektësi dhe pastërti</h3>
+            <p>Respektojmë afatet dhe e lëmë ambientin tuaj të pastër pas çdo punimi.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rrjetet">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="num">04</span>
+          <h2>Na ndiqni</h2>
+        </div>
+        <div class="socials">
+          <a class="social" href="https://www.instagram.com/punime_elektr1ke?igsh=MTJhMDQxczBianpxbw==" target="_blank" rel="noopener">
+            <span class="logo-box">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </span>
+            <div>
+              <h3>Instagram</h3>
+              <span class="handle">@punime_elektr1ke</span>
+            </div>
+            <span class="go">-></span>
+          </a>
+          <a class="social" href="https://www.tiktok.com/@punime_elektr1ke?_r=1&_t=ZN-989rrkayQDe" target="_blank" rel="noopener">
+            <span class="logo-box">
+              <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+            </span>
+            <div>
+              <h3>TikTok</h3>
+              <span class="handle">@punime_elektr1ke</span>
+            </div>
+            <span class="go">-></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="num">05</span>
+          <h2>Kontakt</h2>
+        </div>
+        <div class="contact">
+          <div>
+            <h2>Keni një projekt në mendje?</h2>
+            <p>Na shkruani në rrjetet sociale — përgjigjemi shpejt dhe oferta është falas, pa asnjë detyrim.</p>
+          </div>
+          <div class="btn-row">
+            <a class="btn solid" href="https://www.instagram.com/punime_elektr1ke?igsh=MTJhMDQxczBianpxbw==" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn plain" href="https://www.tiktok.com/@punime_elektr1ke?_r=1&_t=ZN-989rrkayQDe" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <footer>
-    <div class="container footer-inner">
-      <a href="#" class="logo"><span class="bolt">⚡</span> Punime Elektrike</a>
-      <div class="footer-social">
+    <div class="wrap foot">
+      <a class="brand" href="#krye"><span class="sq"></span>PUNIME ELEKTRIKE</a>
+      <div class="foot-social">
         <a href="https://www.instagram.com/punime_elektr1ke?igsh=MTJhMDQxczBianpxbw==" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         </a>
@@ -764,30 +701,9 @@
           <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
         </a>
       </div>
-      <p>© 2026 Punime Elektrike. Të gjitha të drejtat e rezervuara.</p>
+      <small>© 2026 Punime Elektrike</small>
     </div>
   </footer>
 
-  <script>
-    // Menuja mobile
-    const toggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => navLinks.classList.remove('open'))
-    );
-
-    // Animacion "reveal" gjatë scroll-it
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
