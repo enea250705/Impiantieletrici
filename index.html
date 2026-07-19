@@ -272,9 +272,15 @@
       padding: 12px 0;
     }
 
+    .strip-track {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: strip-scroll 24s linear infinite;
+    }
+
     .strip span {
       display: inline-block;
-      padding-right: 48px;
+      padding-right: 24px;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.82rem;
       letter-spacing: 0.1em;
@@ -282,6 +288,11 @@
     }
 
     .strip b { color: var(--accent); font-weight: 400; }
+
+    @keyframes strip-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
 
     /* ---------- sections ---------- */
     section { padding: 76px 0; }
@@ -530,7 +541,10 @@
     </section>
 
     <div class="strip" aria-hidden="true">
-      <span>Instalime elektrike <b>●</b> Punë e garantuar <b>●</b> Materiale të certifikuara <b>●</b> Instalime elektrike <b>●</b> Punë e garantuar <b>●</b> Materiale të certifikuara <b>●</b> Instalime elektrike <b>●</b> Punë e garantuar <b>●</b></span>
+      <div class="strip-track">
+        <span>Instalime elektrike <b>●</b> Punë e garantuar <b>●</b> Materiale të certifikuara <b>●</b> Instalime elektrike <b>●</b> Punë e garantuar <b>●</b> Materiale të certifikuara <b>●</b></span>
+        <span>Instalime elektrike <b>●</b> Punë e garantuar <b>●</b> Materiale të certifikuara <b>●</b> Instalime elektrike <b>●</b> Punë e garantuar <b>●</b> Materiale të certifikuara <b>●</b></span>
+      </div>
     </div>
 
     <section id="sherbimi">
